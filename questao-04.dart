@@ -34,6 +34,51 @@ PK: id_estado    PK: id_cliente     PK: id_telefone        PK: id_tipo
     uf               id_estado (FK)      id_cliente (FK)
     nome                                 id_tipo (FK)
                                         numero
+--insert para teste
+-- Populando a tabela estados
+INSERT INTO estados (id_estado, uf, nome) VALUES
+(1, 'SP', 'São Paulo'),
+(2, 'RJ', 'Rio de Janeiro'),
+(3, 'MG', 'Minas Gerais'),
+(4, 'ES', 'Espírito Santo'),
+(5, 'PR', 'Paraná');
+
+-- Populando a tabela tipos_telefone
+INSERT INTO tipos_telefone (id_tipo, descricao) VALUES
+(1, 'Celular'),
+(2, 'Comercial'),
+(3, 'Residencial'),
+(4, 'WhatsApp'),
+(5, 'Recados');
+
+-- Populando a tabela clientes
+INSERT INTO clientes (id_cliente, razao_social, id_estado) VALUES
+(1, 'Empresa ABC Ltda', 1),        -- SP
+(2, 'Comercial XYZ S.A.', 1),      -- SP
+(3, 'Distribuidora 123', 2),       -- RJ
+(4, 'Indústria São Paulo', 1),     -- SP
+(5, 'Atacado Mineiro', 3),         -- MG
+(6, 'Loja Paulista', 1),           -- SP
+(7, 'Comércio SP', 1);             -- SP
+
+-- Populando a tabela telefones
+INSERT INTO telefones (id_telefone, id_cliente, id_tipo, numero) VALUES
+(1, 1, 1, '11-98765-4321'),
+(2, 1, 2, '11-3333-4444'), 
+(3, 2, 2, '11-2222-3333'),   
+(4, 2, 4, '11-99988-7777'),   
+(5, 4, 2, '11-4444-5555'),    
+(6, 4, 1, '11-98888-7777'),   
+(7, 6, 2, '11-5555-6666'),   
+(8, 7, 3, '11-6666-7777'),   
+(9, 7, 1, '11-97777-8888'),  
+(10, 3, 1, '21-98765-1234'), 
+(11, 3, 2, '21-2222-1111'),    
+(12, 3, 4, '21-99999-8888'),  
+(13, 5, 2, '31-3333-2222'),    
+(14, 5, 1, '31-98888-9999'),  
+(15, 5, 4, '31-97777-6666'); 
+
 --Consulta SQL:
   SELECT 
       c.id_cliente,
